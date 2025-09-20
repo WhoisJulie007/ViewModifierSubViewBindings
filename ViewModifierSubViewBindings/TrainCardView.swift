@@ -1,5 +1,5 @@
 //
-//  TrenBala.swift
+//  TrainCardView.swift
 //  ViewModifierSubViewBindings
 //
 //  Created by win603 on 19/09/25.
@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct TrenBala: View {
+struct TrainCardView: View {
     var body: some View {
         VStack(){
                     
@@ -44,10 +44,9 @@ struct TrenBala: View {
                         RoundedRectangle(cornerRadius: 12)
                             .stroke(Color(red: 130/255, green: 130/255, blue: 130/255, opacity: 0.2), lineWidth: 2)
                     ).padding()
-
     }
 }
 
 #Preview {
-    TrenBala()
+    TrainCardView()
 }
