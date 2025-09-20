@@ -11,6 +11,16 @@ struct ContentView: View {
     var body: some View {
         VStack {
             ScrollView(){
+                ScrollView(.horizontal, showsIndicators: false){
+                    HStack{
+                        TransportesCardView(nombre: "Tren", icono: "tram.fill")
+                        TransportesCardView(nombre: "Bus", icono: "bus.doubledecker.fill")
+                        TransportesCardView(nombre: "Avion", icono: "airplane")
+                        TransportesCardView(nombre: "Carro", icono: "car")
+                        
+                    }
+                }
+                
                 TrainCardView(nombre: "Tampico", iconColor: Color.red)
                 TrainCardView(nombre: "Queretaro", iconColor: Color.blue)
                 TrainCardView(nombre: "Villahermosa", iconColor: Color.brown)

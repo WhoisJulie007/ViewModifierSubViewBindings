@@ -12,6 +12,7 @@ struct TrainCardView: View {
     @State var iconColor : Color
     
     var body: some View {
+        
         VStack(){
                     
                     HStack(){
