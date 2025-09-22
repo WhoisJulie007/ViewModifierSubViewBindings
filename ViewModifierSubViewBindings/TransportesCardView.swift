@@ -26,6 +26,7 @@ struct TransportesCardView: View {
                 RoundedRectangle(cornerRadius: 12)
                     .stroke(Color(red: 130/255, green: 130/255, blue: 130/255, opacity: 0.2), lineWidth: 2)
             )
+            //.rotation3DEffect(.degrees(18), axis: (x: 0, y: 1, z: 0))
     }
 }
 
