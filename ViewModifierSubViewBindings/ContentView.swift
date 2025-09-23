@@ -8,15 +8,16 @@
 import SwiftUI
 
 struct ContentView: View {
+    @State var pressed : Bool = false
     var body: some View {
         VStack {
             ScrollView(){
                 ScrollView(.horizontal, showsIndicators: false){
                     HStack{
-                        TransportesCardView(nombre: "Tren", icono: "tram.fill")
-                        TransportesCardView(nombre: "Bus", icono: "bus.doubledecker.fill")
-                        TransportesCardView(nombre: "Avion", icono: "airplane")
-                        TransportesCardView(nombre: "Carro", icono: "car")
+                        TransportesCardView(name: "Tren", icon: "tram.fill", pressed: $pressed)
+                        TransportesCardView(name: "Bus", icon: "bus.doubledecker.fill", pressed: $pressed)
+                        TransportesCardView(name: "Avion", icon: "airplane", pressed: $pressed)
+                        TransportesCardView(name: "Carro", icon: "car", pressed: $pressed)
                         
                     }
                 }

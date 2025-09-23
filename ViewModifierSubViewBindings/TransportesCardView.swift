@@ -8,22 +8,32 @@
 import SwiftUI
 
 struct TransportesCardView: View {
-    @State var nombre: String
-    @State var icono : String
+    @State var name: String
+    @State var icon : String
+    @Binding var pressed : Bool
+    
     var body: some View {
-        HStack{
-            Image(systemName: icono)
-                .foregroundColor(.black)
-                .font(.system(size: 15))
+                
+                Label(name, systemImage: icon)
+                    .rotationEffect(Angle(degrees: pressed ? 180 : 0))
+                    .modifier(CardViewModifier())
+                    .onTapGesture {
+                        withAnimation(){
+                            self.pressed.toggle()
+                        }
+                    }
+
+        if pressed {
+        Image(systemName: "figure.run")   .foregroundColor(.white)
+                            .padding(8)
+                            .background(Color.blue)
+                            .clipShape(Ellipse())
+                            .transition(.slide)
+                    }
             
-            Text(nombre)
-                .font(.system(size: 15))
-        }.modifier(CardViewModifier())
-            
-            //.rotation3DEffect(.degrees(18), axis: (x: 0, y: 1, z: 0))
     }
 }
 
 #Preview {
-    TransportesCardView(nombre: "Avion", icono: "square.and.arrow.up")
+    TransportesCardView(name: "Avion", icon: "square.and.arrow.up", pressed: .constant(false))
 }

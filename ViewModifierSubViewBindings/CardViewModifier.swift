@@ -8,11 +8,12 @@
 import SwiftUI
 
 struct CardViewModifier: ViewModifier  {
+    @State var color: Color = .white
     func body(content: Content) -> some View {
             content
                 .padding()
             .frame(maxWidth: .infinity, alignment: .leading)
-            .background(Color.white)
+            .background(color)
             .cornerRadius(12)
             .overlay(
                 RoundedRectangle(cornerRadius: 12)
