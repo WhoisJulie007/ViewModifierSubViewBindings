@@ -10,6 +10,8 @@ import SwiftUI
 struct TrainCardView: View {
     @State var nombre: String
     @State var iconColor : Color
+    @State var showAlert: Bool =  false
+
     
     var body: some View {
         
@@ -41,6 +43,13 @@ struct TrainCardView: View {
                         .padding(.bottom)
                         .frame( maxWidth: .infinity)
                 }.modifier(CardViewModifier())
+            .gesture(TapGesture().onEnded{ _ in
+                                self.showAlert.toggle()
+                        })
+                        .alert(Text("Has selecionado el tren \(nombre)") ,isPresented: $showAlert) {
+                            
+                        }
+
     }
 }
 

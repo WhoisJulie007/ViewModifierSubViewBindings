@@ -8,10 +8,25 @@
 import SwiftUI
 
 struct ContentView: View {
+    
     @State var pressed : Bool = false
+    @State var place : String = ""
+    
     var body: some View {
         VStack {
             ScrollView(){
+                VStack{
+                    
+                    TextField("¿A dónde deseas viajar?", text: $place)
+                        .textInputAutocapitalization(.words)
+                        .disableAutocorrection(true)
+                        .padding()
+                    GroupBox(){
+                        Text("Viajaremos a \(place)")
+                    }
+                }
+
+
                 ScrollView(.horizontal, showsIndicators: false){
                     HStack{
                         TransportesCardView(name: "Tren", icon: "tram.fill", pressed: $pressed)
