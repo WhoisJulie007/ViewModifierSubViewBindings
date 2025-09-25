@@ -11,6 +11,7 @@ struct ContentView: View {
     
     @State var pressed : Bool = false
     @State var place : String = ""
+    @State var cardSeleccionada: Int = -1
     
     var body: some View {
         VStack {
@@ -28,11 +29,13 @@ struct ContentView: View {
 
 
                 ScrollView(.horizontal, showsIndicators: false){
+                    Text("Contiene view \(cardSeleccionada)")
                     HStack{
-                        TransportesCardView(name: "Tren", icon: "tram.fill", pressed: $pressed)
-                        TransportesCardView(name: "Bus", icon: "bus.doubledecker.fill", pressed: $pressed)
-                        TransportesCardView(name: "Avion", icon: "airplane", pressed: $pressed)
-                        TransportesCardView(name: "Carro", icon: "car", pressed: $pressed)
+                        TransportesCardView(name: "Tren", image: "tram.fill", index: 0, selectedIndex: cardSeleccionada, pressed: $pressed)
+                        TransportesCardView(name: "Bus", image: "bus.doubledecker.fill", index: 1, selectedIndex: cardSeleccionada, pressed: $pressed)
+                        TransportesCardView(name: "Avion", image: "airplane", index: 2, selectedIndex: cardSeleccionada, pressed: $pressed)
+                        TransportesCardView(name: "Carro", image: "car", index: 3, selectedIndex: cardSeleccionada, pressed: $pressed)
+                        
                         
                     }
                 }

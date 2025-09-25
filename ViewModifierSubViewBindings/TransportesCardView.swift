@@ -8,32 +8,34 @@
 import SwiftUI
 
 struct TransportesCardView: View {
-    @State var name: String
-    @State var icon : String
-    @Binding var pressed : Bool
-    
-    var body: some View {
-                
-                Label(name, systemImage: icon)
-                    .rotationEffect(Angle(degrees: pressed ? 180 : 0))
+        let name: String
+        let image: String
+        var index: Int
+        @State var selectedIndex: Int
+        @Binding var pressed: Bool
+
+        
+        func labelPresionado() -> CGFloat {
+            return pressed ? 360: 0
+        }
+        
+        var body: some View {
+            VStack {
+                Label(name, systemImage: image)
                     .modifier(CardViewModifier())
+                    .rotationEffect(.degrees(labelPresionado()))
                     .onTapGesture {
-                        withAnimation(){
+                        withAnimation(.easeInOut(duration: 0.5)) {
+                            selectedIndex = index
                             self.pressed.toggle()
                         }
+                        
                     }
-
-        if pressed {
-        Image(systemName: "figure.run")   .foregroundColor(.white)
-                            .padding(8)
-                            .background(Color.blue)
-                            .clipShape(Ellipse())
-                            .transition(.slide)
-                    }
-            
+                Text("index seleccionado es: \(selectedIndex)")
+            }
+        }
     }
-}
 
-#Preview {
-    TransportesCardView(name: "Avion", icon: "square.and.arrow.up", pressed: .constant(false))
-}
+    #Preview {
+        TransportesCardView(name: "Barco", image: "sailboat", index: 0, selectedIndex: -1, pressed: .constant(false))
+    }
